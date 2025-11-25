@@ -1,10 +1,9 @@
 # DNA Visibility App
 
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![Python](https://img.shields.io/badge/python-3.x%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![GitHub issues](https://img.shields.io/github/issues/KevinDeVijlder/dna-visibility-app)
-![GitHub forks](https://img.shields.io/github/forks/KevinDeVijlder/dna-visibility-app)
-![GitHub stars](https://img.shields.io/github/stars/KevinDeVijlder/dna-visibility-app)
+
 
 A **simple Python GUI application** to manage DNA entries with customizable visibility and identifiers.  
 Built with **Tkinter** and **SQLite**, it allows users to view, edit, and configure which DNA entries are shown.
