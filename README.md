@@ -4,17 +4,17 @@ A simple Python GUI application to manage DNA entries with customizable visibili
 
 ## Features
 
-Displays DNA items with Name and Custom Identifier
+- Displays DNA items with Name and Custom Identifier
 
-Toggle which items are visible (display on/off)
+- Toggle which items are visible (display on/off)
 
-Edit custom_identifier directly in the GUI
+- Edit custom_identifier directly in the GUI
 
-Toggle view between Show All and Show Only Visible
+- Toggle view between Show All and Show Only Visible
 
-Changes are saved directly to a local SQLite database
+- Changes are saved directly to a local SQLite database
 
-Auto-creates the database if missing (via setup_db.py)
+- Auto-creates the database if missing (via setup_db.py)
 
 
 ---
@@ -36,10 +36,14 @@ python app.py
 
 ## Usage
 
-Double-click on a Custom Identifier to edit it
+- Double-click on a Custom Identifier to edit it
 
-Double-click on Display to toggle Yes/No
+- Double-click on Display to toggle Yes/No
 
-Click Save Changes to update the database
+- Click Save Changes to update the database
 
-Click Show Only Visible / Show All to filter entries
+- Click Show Only Visible / Show All to filter entries
+
+## Disclaimer
+
+This is very basic example app purely for testing purpose.
