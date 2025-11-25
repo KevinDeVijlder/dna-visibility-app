@@ -58,6 +58,10 @@ class DNAApp:
 
         self.refresh_table()
 
+        # Add New Entry button
+        self.add_button = tk.Button(root, text="Add New Entry", command=self.add_new_entry)
+        self.add_button.pack(pady=5)
+
     def connect(self):
         return sqlite3.connect(DB_FILE)
 
@@ -149,6 +153,50 @@ class DNAApp:
 
         self.refresh_table()
 
+    def add_new_entry(self):
+    # Popup window to add a new DNA item.#
+        popup = tk.Toplevel(self.root)
+        popup.title("Add New DNA Entry")
+
+        tk.Label(popup, text="Name:").grid(row=0, column=0, padx=5, pady=5, sticky="e")
+        name_entry = tk.Entry(popup)
+        name_entry.grid(row=0, column=1, padx=5, pady=5)
+
+        tk.Label(popup, text="Custom Identifier:").grid(row=1, column=0, padx=5, pady=5, sticky="e")
+        custom_entry = tk.Entry(popup)
+        custom_entry.grid(row=1, column=1, padx=5, pady=5)
+
+        display_var = tk.BooleanVar(value=True)
+        display_check = tk.Checkbutton(popup, text="Display", variable=display_var)
+        display_check.grid(row=2, columnspan=2, pady=5)
+
+        def submit():
+            name = name_entry.get().strip()
+            custom_id = custom_entry.get().strip()
+            display = 1 if display_var.get() else 0
+
+            if not name:
+                tk.messagebox.showerror("Error", "Name cannot be empty!")
+                return
+
+            # Insert into DB
+            conn = self.connect()
+            c = conn.cursor()
+            c.execute(
+                "INSERT INTO dna_items (name, display, custom_identifier) VALUES (?, ?, ?)",
+                (name, display, custom_id if custom_id else None)
+            )
+            conn.commit()
+            conn.close()
+
+            popup.destroy()
+            self.refresh_table()
+
+        tk.Button(popup, text="Add Entry", command=submit).grid(row=3, columnspan=2, pady=10)
+        
+        popup.grab_set()
+        popup.focus_set()
+        popup.wait_window()
    
 if __name__ == "__main__":
     ensure_database_exists()
