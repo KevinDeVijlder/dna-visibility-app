@@ -27,7 +27,7 @@ Python 3.x
 ### Setup
 
 Clone the repository:
-- git clone https://github.com/YOURNAME/dna-visibility-app.git
+- git clone https://github.com/KevinDeVijlder/dna-visibility-app
 - cd dna-visibility-app
 
 ### Launch the app:
